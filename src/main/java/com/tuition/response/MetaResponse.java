@@ -1,4 +1,4 @@
-package com.example.tuitionmanagement.response;
+package com.tuition.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

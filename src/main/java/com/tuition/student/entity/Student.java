@@ -1,7 +1,7 @@
 package com.tuition.student.entity;
 
-import com.tuition.tms.student.entity.enums.Gender;
-import com.tuition.tms.student.entity.enums.StudentStatus;
+import com.tuition.student.entity.enums.Gender;
+import com.tuition.student.entity.enums.StudentStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;

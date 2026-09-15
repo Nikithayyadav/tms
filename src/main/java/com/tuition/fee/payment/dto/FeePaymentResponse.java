@@ -1,7 +1,7 @@
-package com.example.tuitionmanagement.fee.payment.dto;
+package com.tuition.fee.payment.dto;
 
-import com.example.tuitionmanagement.fee.payment.entity.PaymentMethod;
-import com.example.tuitionmanagement.fee.payment.entity.PaymentStatus;
+import com.tuition.fee.payment.entity.PaymentMethod;
+import com.tuition.fee.payment.entity.PaymentStatus;
 import lombok.Builder;
 import lombok.Data;
 import java.math.BigDecimal;

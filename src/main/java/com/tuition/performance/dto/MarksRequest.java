@@ -1,7 +1,7 @@
-package com.example.tuitionmanagement.performance.dto;
+package com.tuition.performance.dto;
 
-import com.example.tuitionmanagement.performance.entity.ExamName;
-import com.example.tuitionmanagement.performance.entity.Subject;
+import com.tuition.performance.entity.ExamName;
+import com.tuition.performance.entity.Subject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;

@@ -1,4 +1,4 @@
-package com.example.tuitionmanagement.fee.entity;
+package com.tuition.fee.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

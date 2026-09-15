@@ -1,6 +1,6 @@
-package com.tuition.tms.student.dto.request;
+package com.tuition.student.dto.request;
 
-import com.tuition.tms.student.entity.enums.StudentStatus;
+import com.tuition.student.entity.enums.StudentStatus;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,8 +1,8 @@
-package com.example.tuitionmanagement.fee.service;
+package com.tuition.fee.service;
 
-import com.example.tuitionmanagement.fee.dto.FeeStructureRequest;
-import com.example.tuitionmanagement.fee.dto.FeeStructureResponse;
-import com.example.tuitionmanagement.response.ApiResponse;
+import com.tuition.fee.dto.FeeStructureRequest;
+import com.tuition.fee.dto.FeeStructureResponse;
+import com.tuition.response.ApiResponse;
 import org.springframework.http.ResponseEntity;
 
 public interface FeeStructureService {

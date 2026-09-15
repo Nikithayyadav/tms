@@ -1,6 +1,6 @@
-package com.tuition.tms.student.dto.request;
+package com.tuition.student.dto.request;
 
-import com.tuition.tms.student.entity.enums.Gender;
+import com.tuition.student.entity.enums.Gender;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;

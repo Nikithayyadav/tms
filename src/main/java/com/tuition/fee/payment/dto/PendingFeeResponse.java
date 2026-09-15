@@ -1,4 +1,4 @@
-package com.example.tuitionmanagement.fee.payment.dto;
+package com.tuition.fee.payment.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

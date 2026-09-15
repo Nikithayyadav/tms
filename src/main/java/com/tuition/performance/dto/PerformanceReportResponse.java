@@ -1,6 +1,6 @@
-package com.example.tuitionmanagement.performance.dto;
+package com.tuition.performance.dto;
 
-import com.example.tuitionmanagement.performance.entity.ExamName;
+import com.tuition.performance.entity.ExamName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

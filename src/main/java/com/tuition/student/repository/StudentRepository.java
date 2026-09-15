@@ -1,7 +1,7 @@
 package com.tuition.student.repository;
 
 import com.tuition.student.entity.Student;
-import com.tuition.tms.student.entity.enums.StudentStatus;
+import com.tuition.student.entity.enums.StudentStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;

@@ -1,17 +1,17 @@
-package com.example.tuitionmanagement.fee.payment.service;
+package com.tuition.fee.payment.service;
 
-import com.example.tuitionmanagement.exception.BadRequestException;
-import com.example.tuitionmanagement.fee.entity.FeeStructure;
-import com.example.tuitionmanagement.fee.payment.dto.FeePaymentRequest;
-import com.example.tuitionmanagement.fee.payment.dto.FeePaymentResponse;
-import com.example.tuitionmanagement.fee.payment.dto.PendingFeeResponse;
-import com.example.tuitionmanagement.fee.payment.entity.FeePayment;
-import com.example.tuitionmanagement.fee.payment.entity.PaymentStatus;
-import com.example.tuitionmanagement.fee.payment.repository.FeePaymentRepository;
-import com.example.tuitionmanagement.fee.payment.repository.PendingFeeProjection;
-import com.example.tuitionmanagement.fee.repository.FeeStructureRepository;
-import com.example.tuitionmanagement.response.ApiResponse;
-import com.example.tuitionmanagement.response.MetaResponse;
+import com.tuition.exception.BadRequestException;
+import com.tuition.fee.entity.FeeStructure;
+import com.tuition.fee.payment.dto.FeePaymentRequest;
+import com.tuition.fee.payment.dto.FeePaymentResponse;
+import com.tuition.fee.payment.dto.PendingFeeResponse;
+import com.tuition.fee.payment.entity.FeePayment;
+import com.tuition.fee.payment.entity.PaymentStatus;
+import com.tuition.fee.payment.repository.FeePaymentRepository;
+import com.tuition.fee.payment.repository.PendingFeeProjection;
+import com.tuition.fee.repository.FeeStructureRepository;
+import com.tuition.response.ApiResponse;
+import com.tuition.response.MetaResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

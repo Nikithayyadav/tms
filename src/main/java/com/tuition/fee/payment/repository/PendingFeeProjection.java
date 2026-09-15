@@ -1,4 +1,4 @@
-package com.example.tuitionmanagement.fee.payment.repository;
+package com.tuition.fee.payment.repository;
 
 import java.math.BigDecimal;
 

@@ -1,7 +1,7 @@
-package com.tuition.tms.student.dto.response;
+package com.tuition.student.dto.response;
 
-import com.tuition.tms.student.entity.enums.Gender;
-import com.tuition.tms.student.entity.enums.StudentStatus;
+import com.tuition.student.entity.enums.Gender;
+import com.tuition.student.entity.enums.StudentStatus;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

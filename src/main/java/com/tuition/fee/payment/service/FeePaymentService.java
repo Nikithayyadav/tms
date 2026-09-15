@@ -1,8 +1,8 @@
-package com.example.tuitionmanagement.fee.payment.service;
+package com.tuition.fee.payment.service;
 
-import com.example.tuitionmanagement.fee.payment.dto.FeePaymentRequest;
-import com.example.tuitionmanagement.fee.payment.dto.FeePaymentResponse;
-import com.example.tuitionmanagement.response.ApiResponse;
+import com.tuition.fee.payment.dto.FeePaymentRequest;
+import com.tuition.fee.payment.dto.FeePaymentResponse;
+import com.tuition.response.ApiResponse;
 import org.springframework.http.ResponseEntity;
 
 

@@ -1,4 +1,4 @@
-package com.example.tuitionmanagement.performance.entity;
+package com.tuition.performance.entity;
 
 public enum Subject {
 

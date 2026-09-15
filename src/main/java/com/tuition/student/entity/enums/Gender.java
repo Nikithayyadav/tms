@@ -1,4 +1,4 @@
-package com.tuition.tms.student.entity.enums;
+package com.tuition.student.entity.enums;
 
 public enum Gender {
     MALE,

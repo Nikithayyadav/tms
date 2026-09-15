@@ -1,4 +1,4 @@
-package com.example.tuitionmanagement.fee.payment.entity;
+package com.tuition.fee.payment.entity;
 
 public enum PaymentMethod {
 

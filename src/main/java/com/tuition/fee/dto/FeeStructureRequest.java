@@ -1,4 +1,4 @@
-package com.example.tuitionmanagement.fee.dto;
+package com.tuition.fee.dto;
 
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;

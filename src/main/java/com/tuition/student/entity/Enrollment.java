@@ -2,7 +2,7 @@ package com.tuition.student.entity;
 
 import com.tuition.student.entity.Student;
 import com.tuition.teacher.batch.Batch;
-import com.tuition.tms.student.entity.enums.EnrollmentStatus;
+import com.tuition.student.entity.enums.EnrollmentStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;

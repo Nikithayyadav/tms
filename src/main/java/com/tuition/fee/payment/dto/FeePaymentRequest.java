@@ -1,6 +1,6 @@
-package com.example.tuitionmanagement.fee.payment.dto;
+package com.tuition.fee.payment.dto;
 
-import com.example.tuitionmanagement.fee.payment.entity.PaymentMethod;
+import com.tuition.fee.payment.entity.PaymentMethod;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;

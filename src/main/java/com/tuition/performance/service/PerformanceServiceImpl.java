@@ -1,12 +1,12 @@
-package com.example.tuitionmanagement.performance.service;
+package com.tuition.performance.service;
 
-import com.example.tuitionmanagement.performance.dto.MarksRequest;
-import com.example.tuitionmanagement.performance.dto.PerformanceReportResponse;
-import com.example.tuitionmanagement.performance.dto.PerformanceResponse;
-import com.example.tuitionmanagement.performance.entity.ExamName;
-import com.example.tuitionmanagement.performance.entity.Performance;
-import com.example.tuitionmanagement.performance.repository.PerformanceRepository;
-import com.example.tuitionmanagement.response.ApiResponse;
+import com.tuition.performance.dto.MarksRequest;
+import com.tuition.performance.dto.PerformanceReportResponse;
+import com.tuition.performance.dto.PerformanceResponse;
+import com.tuition.performance.entity.ExamName;
+import com.tuition.performance.entity.Performance;
+import com.tuition.performance.repository.PerformanceRepository;
+import com.tuition.response.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

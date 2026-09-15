@@ -1,8 +1,8 @@
-package com.example.tuitionmanagement.performance;
+package com.tuition.performance;
 
-import com.example.tuitionmanagement.performance.dto.MarksRequest;
-import com.example.tuitionmanagement.performance.service.PerformanceService;
-import com.example.tuitionmanagement.response.ApiResponse;
+import com.tuition.performance.dto.MarksRequest;
+import com.tuition.performance.service.PerformanceService;
+import com.tuition.response.ApiResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;

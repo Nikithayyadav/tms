@@ -1,7 +1,7 @@
-package com.example.tuitionmanagement.exception;
+package com.tuition.exception;
 
-import com.example.tuitionmanagement.response.ApiResponse;
-import com.example.tuitionmanagement.response.MetaResponse;
+import com.tuition.response.ApiResponse;
+import com.tuition.response.MetaResponse;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.exc.MismatchedInputException;
@@ -19,11 +19,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 @RestControllerAdvice
-public class GlobalExceptionHandler {
+public class FeePerformanceExceptionHandler {
 
     private final Clock indianClock;
 
-    public GlobalExceptionHandler(Clock indianClock) {
+    public FeePerformanceExceptionHandler(Clock indianClock) {
         this.indianClock = indianClock;
     }
 

@@ -1,7 +1,7 @@
-package com.example.tuitionmanagement.performance.service;
+package com.tuition.performance.service;
 
-import com.example.tuitionmanagement.performance.dto.MarksRequest;
-import com.example.tuitionmanagement.response.ApiResponse;
+import com.tuition.performance.dto.MarksRequest;
+import com.tuition.response.ApiResponse;
 import org.springframework.http.ResponseEntity;
 
 public interface PerformanceService {

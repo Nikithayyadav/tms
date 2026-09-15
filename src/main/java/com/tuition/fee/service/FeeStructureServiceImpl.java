@@ -1,11 +1,11 @@
-package com.example.tuitionmanagement.fee.service;
+package com.tuition.fee.service;
 
-import com.example.tuitionmanagement.fee.dto.FeeStructureRequest;
-import com.example.tuitionmanagement.fee.dto.FeeStructureResponse;
-import com.example.tuitionmanagement.fee.entity.FeeStructure;
-import com.example.tuitionmanagement.fee.repository.FeeStructureRepository;
-import com.example.tuitionmanagement.response.ApiResponse;
-import com.example.tuitionmanagement.response.MetaResponse;
+import com.tuition.fee.dto.FeeStructureRequest;
+import com.tuition.fee.dto.FeeStructureResponse;
+import com.tuition.fee.entity.FeeStructure;
+import com.tuition.fee.repository.FeeStructureRepository;
+import com.tuition.response.ApiResponse;
+import com.tuition.response.MetaResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

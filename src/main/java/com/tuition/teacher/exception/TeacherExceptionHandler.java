@@ -8,7 +8,7 @@ import com.tuition.teacher.teacher.TeacherNotFoundException;
 import com.tuition.teacher.batch.TeacherBatchAlreadyExistsException;
 
 @RestControllerAdvice
-public class GlobalExceptionHandler {
+public class TeacherExceptionHandler {
 
     @ExceptionHandler(TeacherAlreadyExistsException.class)
     public ApiResponse<Object> handleTeacherAlreadyExists(
@@ -21,6 +21,7 @@ public class GlobalExceptionHandler {
                 null
         );
     }
+
     @ExceptionHandler(TeacherNotFoundException.class)
     public ApiResponse<Object> handleTeacherNotFound(
             TeacherNotFoundException exception) {
@@ -32,6 +33,7 @@ public class GlobalExceptionHandler {
                 null
         );
     }
+
     @ExceptionHandler(TeacherBatchAlreadyExistsException.class)
     public ApiResponse<Object> handleTeacherBatchAlreadyExists(
             TeacherBatchAlreadyExistsException exception) {

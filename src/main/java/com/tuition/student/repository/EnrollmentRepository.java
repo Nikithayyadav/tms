@@ -1,7 +1,7 @@
 package com.tuition.student.repository;
 
-import com.tuition.tms.student.entity.Enrollment;
-import com.tuition.tms.student.entity.enums.EnrollmentStatus;
+import com.tuition.student.entity.Enrollment;
+import com.tuition.student.entity.enums.EnrollmentStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

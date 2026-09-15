@@ -1,8 +1,8 @@
-package com.example.tuitionmanagement.performance.repository;
+package com.tuition.performance.repository;
 
-import com.example.tuitionmanagement.performance.entity.ExamName;
-import com.example.tuitionmanagement.performance.entity.Performance;
-import com.example.tuitionmanagement.performance.entity.Subject;
+import com.tuition.performance.entity.ExamName;
+import com.tuition.performance.entity.Performance;
+import com.tuition.performance.entity.Subject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

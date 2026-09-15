@@ -1,4 +1,4 @@
-package com.tuition.tms.student.dto.response;
+package com.tuition.student.dto.response;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;

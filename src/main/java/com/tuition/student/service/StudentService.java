@@ -1,5 +1,24 @@
 package com.tuition.student.service;
 
+import com.tuition.common.exception.BadRequestException;
+import com.tuition.common.exception.DuplicateResourceException;
+import com.tuition.common.exception.ResourceNotFoundException;
+import com.tuition.student.dto.request.CreateStudentRequest;
+import com.tuition.student.dto.request.StudentEnrollmentRequest;
+import com.tuition.student.dto.request.StudentSearchCriteria;
+import com.tuition.student.dto.request.UpdateStudentRequest;
+import com.tuition.student.dto.response.BatchResponse;
+import com.tuition.student.dto.response.EnrollmentResponse;
+import com.tuition.student.dto.response.StudentDetailResponse;
+import com.tuition.student.dto.response.StudentResponse;
+import com.tuition.student.entity.Enrollment;
+import com.tuition.student.entity.Student;
+import com.tuition.student.entity.enums.EnrollmentStatus;
+import com.tuition.student.entity.enums.StudentStatus;
+import com.tuition.teacher.batch.BatchRepository;
+import com.tuition.student.repository.EnrollmentRepository;
+import com.tuition.student.repository.StudentRepository;
+import com.tuition.teacher.batch.Batch;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.jpa.domain.Specification;
@@ -75,7 +94,7 @@ public class StudentService {
      */
     @Transactional(readOnly = true)
     public List<StudentResponse> searchStudents(StudentSearchCriteria criteria) {
-        Specification<Student> specification = Specification.where(null);
+        Specification<Student> specification = Specification.where((Specification<Student>) null);
 
         if (criteria.getSearch() != null && !criteria.getSearch().trim().isEmpty()) {
             String search = criteria.getSearch().trim().toLowerCase();

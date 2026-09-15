@@ -1,9 +1,9 @@
-package com.example.tuitionmanagement.fee.payment;
+package com.tuition.fee.payment;
 
-import com.example.tuitionmanagement.fee.payment.dto.FeePaymentRequest;
-import com.example.tuitionmanagement.fee.payment.dto.FeePaymentResponse;
-import com.example.tuitionmanagement.fee.payment.service.FeePaymentService;
-import com.example.tuitionmanagement.response.ApiResponse;
+import com.tuition.fee.payment.dto.FeePaymentRequest;
+import com.tuition.fee.payment.dto.FeePaymentResponse;
+import com.tuition.fee.payment.service.FeePaymentService;
+import com.tuition.response.ApiResponse;
 
 import jakarta.validation.Valid;
 

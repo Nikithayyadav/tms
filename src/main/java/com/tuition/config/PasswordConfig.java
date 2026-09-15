@@ -1,4 +1,4 @@
-package com.example.tuitionmanagement.config;
+package com.tuition.config;
 
 public class PasswordConfig {
 }

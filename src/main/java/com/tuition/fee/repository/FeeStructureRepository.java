@@ -1,6 +1,6 @@
-package com.example.tuitionmanagement.fee.repository;
+package com.tuition.fee.repository;
 
-import com.example.tuitionmanagement.fee.entity.FeeStructure;
+import com.tuition.fee.entity.FeeStructure;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

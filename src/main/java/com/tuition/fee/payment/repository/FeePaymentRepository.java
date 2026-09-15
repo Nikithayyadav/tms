@@ -1,12 +1,12 @@
-package com.example.tuitionmanagement.fee.payment.repository;
+package com.tuition.fee.payment.repository;
 
-import com.example.tuitionmanagement.fee.payment.entity.FeePayment;
+import com.tuition.fee.payment.entity.FeePayment;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import com.example.tuitionmanagement.fee.payment.repository.PendingFeeProjection;
+import com.tuition.fee.payment.repository.PendingFeeProjection;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.query.Param;
@@ -35,7 +35,7 @@ public interface FeePaymentRepository extends JpaRepository<FeePayment, Long> {
             FROM FeePayment p
             WHERE p.studentId = :studentId
               AND p.feeStructureId = :feeStructureId
-              AND p.paymentStatus = com.example.tuitionmanagement.fee.payment.entity.PaymentStatus.SUCCESS
+              AND p.paymentStatus = com.tuition.fee.payment.entity.PaymentStatus.SUCCESS
             """)
     BigDecimal findTotalPaidAmount(
             @Param("studentId") Long studentId,

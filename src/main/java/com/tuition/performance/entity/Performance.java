@@ -1,4 +1,4 @@
-package com.example.tuitionmanagement.performance.entity;
+package com.tuition.performance.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

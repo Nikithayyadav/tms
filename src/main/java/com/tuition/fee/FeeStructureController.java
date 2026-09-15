@@ -1,9 +1,9 @@
-package com.example.tuitionmanagement.fee;
+package com.tuition.fee;
 
-import com.example.tuitionmanagement.fee.dto.FeeStructureRequest;
-import com.example.tuitionmanagement.fee.dto.FeeStructureResponse;
-import com.example.tuitionmanagement.fee.service.FeeStructureService;
-import com.example.tuitionmanagement.response.ApiResponse;
+import com.tuition.fee.dto.FeeStructureRequest;
+import com.tuition.fee.dto.FeeStructureResponse;
+import com.tuition.fee.service.FeeStructureService;
+import com.tuition.response.ApiResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

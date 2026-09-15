@@ -1,4 +1,4 @@
-package com.example.tuitionmanagement.fee.entity;
+package com.tuition.fee.entity;
 
 public enum FeeBatch {
 
