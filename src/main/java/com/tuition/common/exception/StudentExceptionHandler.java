@@ -9,6 +9,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import com.tuition.teacher.batch.TeacherBatchAlreadyExistsException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -92,5 +93,20 @@ public class StudentExceptionHandler {
                 request.getRequestURI()
         );
         return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+    @ExceptionHandler(TeacherBatchAlreadyExistsException.class)
+    public ResponseEntity<ApiResponse<Void>> handleTeacherBatchAlreadyExists(
+            TeacherBatchAlreadyExistsException ex,
+            HttpServletRequest request) {
+
+        log.warn("Teacher batch assignment conflict: {}", ex.getMessage());
+
+        ApiResponse<Void> response = ApiResponse.error(
+                "TEACHER_BATCH_ALREADY_EXISTS",
+                ex.getMessage(),
+                request.getRequestURI()
+        );
+
+        return new ResponseEntity<>(response, HttpStatus.CONFLICT);
     }
 }

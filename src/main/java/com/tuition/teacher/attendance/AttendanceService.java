@@ -1,6 +1,8 @@
 package com.tuition.teacher.attendance;
 
 import org.springframework.stereotype.Service;
+import com.tuition.student.repository.EnrollmentRepository;
+import com.tuition.student.entity.enums.EnrollmentStatus;
 
 @Service
 public class AttendanceService {
@@ -24,7 +26,7 @@ public class AttendanceService {
                         .existsByStudentIdAndBatchIdAndStatus(
                                 attendanceRequest.getStudentId(),
                                 attendanceRequest.getBatchId(),
-                                "ACTIVE");
+                                EnrollmentStatus.ACTIVE);
 
         if (!enrolled) {
             throw new StudentNotEnrolledException(
