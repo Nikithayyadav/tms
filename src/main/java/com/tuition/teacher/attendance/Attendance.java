@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -23,6 +25,8 @@ public class Attendance {
     private Long batchId;
 
     private Long studentId;
+
+    private LocalDate date;
 
     private boolean present;
 }
