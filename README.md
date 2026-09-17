@@ -1,4 +1,4 @@
-Tuition Management System
+TUITION MANAGEMENT SYSTEM
 
 A backend-based Tuition Management System developed using Java, Spring Boot, Spring Data JPA, Hibernate, and MySQL.
 
