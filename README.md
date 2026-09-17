@@ -1,19 +1,18 @@
-TUITION MANAGEMENT SYSTEM
+# 🎓 Tuition Management System
 
-A backend-based Tuition Management System developed using Java, Spring Boot, Spring Data JPA, Hibernate, and MySQL.
+A backend-based **Tuition Management System** developed using **Java, Spring Boot, Spring Data JPA, Hibernate, and MySQL**.
 
 The project is divided into three connected modules:
 
-Student Management
+- 👨‍🎓 **Student Management**
+- 👨‍🏫 **Teacher & Class Management**
+- 💰 **Fees & Performance Management**
 
-Teacher & Class Management
+---
 
-Fees & Performance Management
+## 📌 Project Structure
 
-All three modules are maintained in a single repository and use a common database so that student, batch, teacher, attendance, fees, and performance information can work together.
-
-Project Structure
-
+```text
 Tuition-management-system/
 │
 ├── student-service/
@@ -26,267 +25,288 @@ Tuition-management-system/
 │   └── Fees & Performance Module
 │
 └── README.md
+```
 
-Project Overview
+---
 
-The Tuition Management System is designed to manage the major operations of a tuition/coaching institute.
+## 🚀 Features
 
-The system manages:
+### 👨‍🎓 Student Management
 
-Students
+- Add student
+- Update student
+- Delete student
+- Search student
+- View student details
+- Enroll student
+- Assign student to batch
 
-Student enrollment
+### 👨‍🏫 Teacher & Class Management
 
-Teachers
+- Add teacher
+- Update teacher
+- View teachers
+- Create batches
+- View batches
+- Assign teacher to batch
+- View teacher-batch assignments
+- Create subjects
+- View subjects
+- Mark attendance
 
-Batches
+### 💰 Fees & Performance Management
 
-Teacher-batch assignments
+- Create fee structure
+- Record fee payment
+- Check pending fees
+- Generate fee receipt
+- Enter examination marks
+- Calculate percentage
+- Calculate grade
+- Generate student performance report
 
-Subjects
+---
 
-Attendance
+# 🔗 System Workflow
 
-Fee structures
+```text
+                    ┌───────────────┐
+                    │    Student    │
+                    └───────┬───────┘
+                            │
+                            ▼
+                    ┌───────────────┐
+                    │   Enrollment  │
+                    └───────┬───────┘
+                            │
+                            ▼
+                    ┌───────────────┐
+                    │     Batch     │
+                    └───────┬───────┘
+                            │
+                 ┌──────────┴──────────┐
+                 ▼                     ▼
+        ┌────────────────┐     ┌────────────────┐
+        │ Teacher-Batch  │     │   Attendance   │
+        └───────┬────────┘     └───────┬────────┘
+                │                      │
+                ▼                      ▼
+           ┌──────────┐          ┌──────────┐
+           │ Teacher  │          │ Student  │
+           └────┬─────┘          └──────────┘
+                │
+                ▼
+           ┌──────────┐
+           │ Subject  │
+           └──────────┘
 
-Fee payments
+                    Student
+                       │
+              ┌────────┴────────┐
+              ▼                 ▼
+         ┌──────────┐     ┌─────────────┐
+         │   Fees   │     │ Performance │
+         └──────────┘     └─────────────┘
+```
 
-Pending fees
+---
 
-Fee receipts
+# 🧩 Module 1 — Student Management
 
-Examination marks
+The Student Management module handles student records and enrollment.
 
-Percentage
+## Features
 
-Grades
+- Add student
+- Update student
+- Delete student
+- Search student
+- View student details
+- Student enrollment
+- Assign student to batch
 
-Student performance reports
+## Main Entities
 
-Overall System Flow
+- `Student`
+- `Enrollment`
+- `Batch`
 
+## Enrollment Flow
+
+```text
 Student
-   ↓
-Enrollment
-   ↓
-Batch
-   ↓
-Teacher
-   ↓
-Subject
-   ↓
-Attendance
-   ↓
-Exam / Marks
-   ↓
-Performance
-   ↓
-Fees
-   ↓
-Student Report
-
-Modules
-
-1. Student Management Module
-
-The Student Management module handles student information and student enrollment.
-
-Features
-
-Add student
-
-Update student
-
-Delete student
-
-Search student
-
-View student details
-
-Student enrollment
-
-Assign student to batch
-
-Main Entities
-
-Student
-
-Enrollment
-
-Batch
-
-Enrollment Flow
-
-Student
-   ↓
+   │
+   ▼
 Select Batch
-   ↓
+   │
+   ▼
 Create Enrollment
-   ↓
+   │
+   ▼
 Enrollment Status = ACTIVE
+```
 
 The enrollment connects a student with a batch.
 
 Example:
 
-Student ID: 1
-Batch ID: 1
-Status: ACTIVE
+```text
+Student ID : 1
+Batch ID   : 1
+Status     : ACTIVE
+```
 
-The enrollment information is also used by the Attendance module to verify whether a student is actively enrolled in a particular batch.
+The enrollment information is also used by the Attendance module to verify whether the student is actively enrolled in the selected batch.
 
-2. Teacher & Class Management Module
+---
 
-The Teacher & Class Management module manages teachers, batches, subjects, teacher-batch assignments, and attendance.
+# 🧩 Module 2 — Teacher & Class Management
 
-Features
+The Teacher & Class Management module handles teachers, batches, subjects, teacher-batch assignments, and attendance.
 
-Add teacher
+## 👨‍🏫 Teacher Management
 
-Update teacher
+### Teacher Details
 
-View teachers
+- Teacher ID
+- Name
+- Email
+- Phone
+- Specialization
 
-Create batches
+### APIs
 
-View batches
+| Method | Endpoint | Description |
+|---|---|---|
+| `POST` | `/api/teachers` | Add teacher |
+| `GET` | `/api/teachers` | Get teachers |
+| `PUT` | `/api/teachers/{id}` | Update teacher |
 
-Assign teacher to batch
+### Pagination
 
-View teacher-batch assignments
-
-Create subjects
-
-View subjects
-
-Mark attendance
-
-Teacher Management
-
-Teacher information includes:
-
-Teacher ID
-
-Name
-
-Email
-
-Phone
-
-Specialization
-
-Teacher APIs
-
-POST /api/teachers
-GET  /api/teachers
-PUT  /api/teachers/{id}
-
-Pagination
-
+```text
 GET /api/teachers?page=0&size=10
+```
 
-Batch Management
+---
+
+## 🕘 Batch Management
 
 The institute uses fixed batches with predefined timings.
 
-Batch
+| Batch | Start Time | End Time |
+|---|---:|---:|
+| `MRG_BATCH` | 09:00 AM | 11:00 AM |
+| `AFN_BATCH` | 01:00 PM | 03:00 PM |
+| `EVNG_BATCH` | 05:00 PM | 07:00 PM |
 
-Time
+### Batch Details
 
-MRG_BATCH
+- Batch ID
+- Batch name
+- Start time
+- End time
 
-09:00 AM - 11:00 AM
+### APIs
 
-AFN_BATCH
+| Method | Endpoint | Description |
+|---|---|---|
+| `POST` | `/api/batches` | Create batch |
+| `GET` | `/api/batches` | Get batches |
 
-01:00 PM - 03:00 PM
+### Pagination
 
-EVNG_BATCH
-
-05:00 PM - 07:00 PM
-
-Each batch contains:
-
-Batch ID
-
-Batch name
-
-Start time
-
-End time
-
-Batch APIs
-
-POST /api/batches
-GET  /api/batches
-
-Pagination
-
+```text
 GET /api/batches?page=0&size=10
+```
 
-Teacher-Batch Assignment
+> Batch timings are stored directly in the Batch entity because the institute uses fixed batch time slots. A separate schedule entity is not required for these fixed timings.
 
-A teacher can be assigned to a batch using the TeacherBatch entity.
+---
 
+## 🔗 Teacher-Batch Assignment
+
+A teacher can be assigned to a batch through the `TeacherBatch` entity.
+
+### Structure
+
+```text
 TeacherBatch
 ├── id
 ├── teacherId
 └── batchId
+```
 
-APIs
+### APIs
 
-POST /api/teacher-batches
-GET  /api/teacher-batches
+| Method | Endpoint | Description |
+|---|---|---|
+| `POST` | `/api/teacher-batches` | Assign teacher to batch |
+| `GET` | `/api/teacher-batches` | View assignments |
 
-Example:
+### Example
 
+```text
 POST /api/teacher-batches?teacherId=1&batchId=1
+```
+
+This creates a relationship between:
+
+```text
+Teacher ID 1
+      │
+      ▼
+Batch ID 1
+```
 
 Duplicate teacher-batch assignments are prevented.
 
-Subject Management
+---
+
+## 📚 Subject Management
 
 The system supports subject creation and subject listing.
 
-Example subjects:
+### Example Subjects
 
-Java
-Python
-MySQL
+- Java
+- Python
+- MySQL
 
-Subject information includes:
+### Subject Details
 
-Subject ID
+- Subject ID
+- Name
+- Description
 
-Name
+### APIs
 
-Description
+| Method | Endpoint | Description |
+|---|---|---|
+| `POST` | `/api/subjects` | Create subject |
+| `GET` | `/api/subjects` | Get subjects |
 
-Subject APIs
+### Pagination
 
-POST /api/subjects
-GET  /api/subjects
-
-Pagination
-
+```text
 GET /api/subjects?page=0&size=10
+```
 
-Attendance Management
+---
+
+## 📝 Attendance Management
 
 Attendance is recorded using:
 
-Teacher ID
+- Teacher ID
+- Batch ID
+- Student ID
+- Date
+- Present/Absent status
 
-Batch ID
+### Attendance Structure
 
-Student ID
-
-Date
-
-Present/Absent status
-
-Attendance Structure
-
+```text
 Attendance
 ├── id
 ├── teacherId
@@ -294,13 +314,17 @@ Attendance
 ├── studentId
 ├── date
 └── present
+```
 
-Attendance API
+### API
 
+```text
 POST /api/attendance
+```
 
-Example request:
+### Example Request
 
+```json
 {
   "teacherId": 1,
   "batchId": 1,
@@ -308,226 +332,214 @@ Example request:
   "date": "2026-09-16",
   "present": true
 }
+```
 
-Before marking attendance, the system verifies that the student is actively enrolled in the selected batch.
+### Attendance Validation
 
-The system also prevents duplicate attendance for the same student, batch, and date.
+Before saving attendance:
 
-Attendance Flow
+1. Check whether the student exists in the enrollment.
+2. Check whether the enrollment belongs to the selected batch.
+3. Check whether the enrollment status is `ACTIVE`.
+4. Check whether attendance has already been marked for that student, batch, and date.
+5. Save attendance if all validations pass.
 
+### Attendance Flow
+
+```text
 Attendance Request
-        ↓
+        │
+        ▼
 Check Student Enrollment
-        ↓
-Is Student ACTIVE?
-   ┌────┴────┐
-   │         │
-  YES        NO
-   │         │
-   ↓         ↓
-Check       Reject
+        │
+        ▼
+Is Enrollment ACTIVE?
+    ┌───┴───┐
+   YES      NO
+    │        │
+    ▼        ▼
+Check      Reject
 Duplicate
-   │
-   ↓
+    │
+    ▼
 Save Attendance
+```
 
-3. Fees & Performance Management Module
+---
 
-The Fees & Performance module manages student fees and academic performance.
+# 🧩 Module 3 — Fees & Performance Management
 
-Features
+The Fees & Performance module handles financial and academic information.
 
-Create fee structure
+## 💰 Fee Management
 
-Record fee payment
+### Features
 
-Check pending fees
+- Create fee structure
+- Record fee payment
+- Check pending fees
+- Generate fee receipt
 
-Generate fee receipt
+### Flow
 
-Enter examination marks
-
-Calculate percentage
-
-Calculate grade
-
-Generate student performance report
-
-Main Entities
-
+```text
+Student
+   │
+   ▼
 Fee Structure
-
+   │
+   ▼
 Fee Payment
+   │
+   ▼
+Pending Amount
+   │
+   ▼
+Fee Receipt
+```
 
-Performance
+---
 
+## 📊 Performance Management
+
+### Features
+
+- Enter examination marks
+- Calculate percentage
+- Calculate grade
+- Generate performance report
+
+### Flow
+
+```text
+Student
+   │
+   ▼
 Examination Marks
-
-Module Integration
-
-The three modules are connected through common entities and IDs.
-
-Student and Batch
-
-Student
-   ↓
-Enrollment
-   ↓
-Batch
-
-Teacher and Batch
-
-Teacher
-   ↓
-TeacherBatch
-   ↓
-Batch
-
-Attendance
-
-Teacher
-   ↓
-Attendance
-   ↑
-Student
-   ↑
-Batch
-
-Performance
-
-Student
-   ↓
-Examination Marks
-   ↓
+   │
+   ▼
 Percentage
-   ↓
+   │
+   ▼
 Grade
-   ↓
+   │
+   ▼
 Performance Report
+```
 
-Fees
+---
 
-Student
-   ↓
-Fee Structure
-   ↓
-Fee Payment
-   ↓
-Pending Amount / Receipt
+# 🗄️ Database
 
-Database
+The application uses **MySQL** as the database.
 
-The application uses MySQL as the database.
+## Main Tables
 
-Main Tables
-
+```text
 students
 enrollments
+
 teacher
 batch
 teacher_batch
 subject
 attendance
+
 fee_structures
 fee_payments
 performances
+```
 
-Technology Stack
+The modules share common database information where required.
 
-Backend
+---
 
-Java 17
+# 🛠️ Technology Stack
 
-Spring Boot
+| Technology | Purpose |
+|---|---|
+| Java 17 | Programming language |
+| Spring Boot | Backend framework |
+| Spring Data JPA | Database access |
+| Hibernate | ORM |
+| MySQL | Database |
+| Maven | Build and dependency management |
+| Lombok | Reducing boilerplate code |
+| Swagger UI | API documentation and testing |
+| Git | Version control |
+| GitHub | Repository |
 
-Spring Data JPA
+---
 
-Hibernate
-
-Maven
-
-Database
-
-MySQL
-
-API Documentation and Testing
-
-Swagger UI
-
-Development Tools
-
-IntelliJ IDEA
-
-MySQL Workbench
-
-Git
-
-GitHub
-
-Libraries
-
-Lombok
-
-Jakarta Persistence API
-
-Backend Architecture
+# 🏗️ Backend Architecture
 
 The application follows a layered architecture.
 
-Controller
-    ↓
-Service
-    ↓
-Repository
-    ↓
-Database
+```text
+┌────────────────────┐
+│     Controller     │
+│   REST API Layer   │
+└─────────┬──────────┘
+          │
+          ▼
+┌────────────────────┐
+│      Service       │
+│   Business Logic   │
+└─────────┬──────────┘
+          │
+          ▼
+┌────────────────────┐
+│     Repository     │
+│    Data Access     │
+└─────────┬──────────┘
+          │
+          ▼
+┌────────────────────┐
+│       MySQL        │
+│      Database      │
+└────────────────────┘
+```
 
-Controller Layer
-
-Responsible for:
-
-Receiving HTTP requests
-
-Reading request parameters
-
-Reading request bodies
-
-Calling service methods
-
-Returning API responses
-
-Service Layer
-
-Responsible for:
-
-Business logic
-
-Validation
-
-Duplicate checks
-
-Enrollment verification
-
-Attendance verification
-
-Calling repositories
-
-Repository Layer
+## Controller Layer
 
 Responsible for:
 
-Database operations
+- Receiving HTTP requests
+- Reading request parameters
+- Reading request bodies
+- Calling service methods
+- Returning API responses
 
-CRUD operations
+## Service Layer
 
-Derived query methods
+Responsible for:
 
-Spring Data JPA is used so standard CRUD operations do not require manually written SQL for every operation.
+- Business logic
+- Validation
+- Duplicate checks
+- Enrollment verification
+- Attendance verification
+- Calling repositories
 
-API Response Structure
+## Repository Layer
 
-Example successful response:
+Responsible for:
 
+- Database operations
+- CRUD operations
+- Derived query methods
+
+Spring Data JPA provides standard CRUD operations through `JpaRepository`.
+
+---
+
+# 📦 API Response Structure
+
+The application uses a common response structure for implemented APIs.
+
+## Successful Response
+
+```json
 {
   "success": true,
   "data": {
@@ -537,9 +549,11 @@ Example successful response:
   "error": null,
   "meta": null
 }
+```
 
-Example paginated response:
+## Paginated Response
 
+```json
 {
   "success": true,
   "data": [],
@@ -551,400 +565,119 @@ Example paginated response:
     "totalPages": 2
   }
 }
+```
 
-Pagination
+---
 
-Pagination is used for listing APIs where required.
+# 📄 Pagination
 
-Example:
+Pagination is implemented for listing APIs where required.
 
+### Example
+
+```text
 GET /api/teachers?page=0&size=10
+```
 
-Parameter
-
-Description
-
-Default
-
-page
-
-Page number
-
-0
-
-size
-
-Number of records per page
-
-10
+| Parameter | Description | Default |
+|---|---|---:|
+| `page` | Page number | `0` |
+| `size` | Number of records per page | `10` |
 
 Spring Data classes used:
 
-Pageable
+- `Pageable`
+- `PageRequest`
+- `Page`
 
-PageRequest
+---
 
-Page
-
-Exception Handling
+# ⚠️ Exception Handling
 
 The application uses custom exceptions and centralized exception handling.
 
 Examples include:
 
-Resource not found
+- Resource not found
+- Duplicate resource
+- Bad request
+- Validation errors
+- Student not enrolled
+- Duplicate attendance
+- Duplicate teacher-batch assignment
 
-Duplicate resource
+Global exception handling is implemented using:
 
-Bad request
+```java
+@RestControllerAdvice
+```
 
-Validation errors
+### Example Error Response
 
-Student not enrolled
+```json
+{
+  "success": false,
+  "data": null,
+  "error": {
+    "code": "RESOURCE_NOT_FOUND",
+    "message": "Resource not found"
+  }
+}
+```
 
-Duplicate attendance
+---
 
-Duplicate teacher-batch assignment
+# 🔐 Business Rules
 
-Global exception handling is implemented using @RestControllerAdvice.
+## Teacher
 
-Data Validation and Business Rules
+- Email should not be duplicated.
+- Phone number should not be duplicated.
+- Teacher must exist before updating.
 
-Teacher
+## Teacher-Batch Assignment
 
-Prevent duplicate email
+- Duplicate teacher-batch assignments are prevented.
 
-Prevent duplicate phone number
+## Enrollment
 
-Verify teacher exists before update
+- Duplicate student-batch enrollment is prevented.
+- Enrollment status is maintained.
 
-Teacher-Batch Assignment
+## Attendance
 
-Prevent duplicate teacher-batch assignment
+- Student must be actively enrolled in the selected batch.
+- Duplicate attendance for the same student, batch, and date is prevented.
 
-Enrollment
+---
 
-Prevent duplicate student-batch enrollment
+# 🔢 ID Strategy
 
-Maintain enrollment status
+The main entities use `Long` IDs.
 
-Attendance
-
-Verify active student enrollment
-
-Prevent duplicate attendance for the same student, batch, and date
-
-ID Strategy
-
-The application uses Long IDs for the main entities.
-
+```text
 Teacher ID      → Long
 Batch ID        → Long
 Subject ID      → Long
 Student ID      → Long
 Attendance ID   → Long
+```
 
-Example identity generation:
+IDs are generated using database identity generation where configured.
 
+Example:
+
+```java
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long id;
+```
 
-Getting Started
+---
 
-Prerequisites
+# 🕘 Batch Configuration
 
-Install:
-
-Java 17
-MySQL
-Maven
-Git
-IntelliJ IDEA
-
-Clone the Repository
-
-git clone https://github.com/Nikithayyadav/Tuition-management-system.git
-cd Tuition-management-system
-
-Database Setup
-
-Create a MySQL database for the project.
-
-Example:
-
-CREATE DATABASE tuition_db;
-
-Configure the datasource in the Spring Boot configuration:
-
-spring.datasource.url=jdbc:mysql://localhost:3306/tuition_db
-spring.datasource.username=root
-spring.datasource.password=YOUR_PASSWORD
-
-Replace YOUR_PASSWORD with your MySQL password and use the actual database name configured in the project if it differs from this example.
-
-Running the Application
-
-Make sure MySQL is running, then start the Spring Boot application.
-
-Windows
-
-mvnw.cmd spring-boot:run
-
-Linux / macOS
-
-./mvnw spring-boot:run
-
-Swagger UI
-
-After starting the application, Swagger UI can be used to test the REST APIs.
-
-http://localhost:8080/swagger-ui/index.html
-
-Swagger can be used to:
-
-View APIs
-
-Enter request data
-
-Execute APIs
-
-View responses
-
-Test successful scenarios
-
-Test failure scenarios
-
-Complete Testing Flow
-
-Step 1 — Create Teacher
-
-POST /api/teachers
-
-Example:
-
-{
-  "name": "Ravi Kumar",
-  "phone": "9876543210",
-  "email": "ravi@example.com",
-  "specialization": "Java"
-}
-
-Step 2 — Create Batch
-
-POST /api/batches
-
-Example:
-
-{
-  "name": "MRG_BATCH",
-  "startTime": "09:00",
-  "endTime": "11:00"
-}
-
-Step 3 — Create Subject
-
-POST /api/subjects
-
-Example:
-
-{
-  "name": "Java",
-  "description": "Core Java programming"
-}
-
-Step 4 — Create Student
-
-Use the Student Management APIs to create a student.
-
-Step 5 — Enroll Student
-
-POST /students/{studentId}/enrollment
-
-Example:
-
-{
-  "batchId": 1
-}
-
-Step 6 — Assign Teacher to Batch
-
-POST /api/teacher-batches?teacherId=1&batchId=1
-
-Step 7 — Mark Attendance
-
-POST /api/attendance
-
-Example:
-
-{
-  "teacherId": 1,
-  "batchId": 1,
-  "studentId": 1,
-  "date": "2026-09-16",
-  "present": true
-}
-
-Step 8 — Manage Fees
-
-Create Fee Structure
-        ↓
-Record Fee Payment
-        ↓
-Check Pending Fees
-        ↓
-Generate Fee Receipt
-
-Step 9 — Manage Performance
-
-Enter Examination Marks
-        ↓
-Calculate Percentage
-        ↓
-Calculate Grade
-        ↓
-Generate Performance Report
-
-Testing Scenarios
-
-Teacher
-
-Add teacher
-
-Get teachers
-
-Update teacher
-
-Test duplicate email
-
-Test duplicate phone
-
-Test update with non-existing teacher
-
-Test pagination
-
-Batch
-
-Create batch
-
-Get batches
-
-Test pagination
-
-Subject
-
-Create subject
-
-Get subjects
-
-Test pagination
-
-Teacher-Batch
-
-Assign teacher to batch
-
-View assignments
-
-Prevent duplicate assignment
-
-Student Enrollment
-
-Enroll student into batch
-
-Prevent duplicate enrollment
-
-Maintain enrollment status
-
-Attendance
-
-Mark student present
-
-Mark student absent
-
-Verify active enrollment
-
-Prevent duplicate attendance
-
-Fees
-
-Create fee structure
-
-Record payment
-
-Check pending fees
-
-Generate fee receipt
-
-Performance
-
-Enter examination marks
-
-Calculate percentage
-
-Calculate grade
-
-Generate performance report
-
-Core Java Concepts Demonstrated
-
-Phase 1 — Object-Oriented Programming
-
-Classes and Objects
-
-Constructors
-
-Encapsulation
-
-Inheritance
-
-Polymorphism
-
-Interfaces
-
-Phase 2 — Collections and Exception Handling
-
-ArrayList
-
-HashMap
-
-HashSet
-
-Exception Handling
-
-Custom Exceptions
-
-Phase 3 — Java Functional Programming
-
-Lambda Expressions
-
-Stream API
-
-filter()
-
-map()
-
-sorted()
-
-collect()
-
-groupingBy()
-
-Phase 4 — Database and Persistence
-
-JDBC concepts
-
-MySQL
-
-CRUD operations
-
-JPA
-
-Hibernate
-
-Transactions
-
-Batch Configuration
-
+```text
 MRG_BATCH
 09:00 AM - 11:00 AM
 
@@ -953,148 +686,450 @@ AFN_BATCH
 
 EVNG_BATCH
 05:00 PM - 07:00 PM
+```
 
-The batch stores the start and end time, so a separate schedule entity is not required for these fixed batch timings.
+The batch stores its own start and end time because these are fixed institute batch timings.
 
-Key Business Rules
+---
 
-A student can be enrolled in a batch.
+# 🚀 Getting Started
 
-Duplicate student-batch enrollment should not be allowed.
+## Prerequisites
 
-A teacher can be assigned to a batch.
+Install the following:
 
-Duplicate teacher-batch assignments should not be allowed.
+- Java 17
+- MySQL
+- Maven
+- Git
+- IntelliJ IDEA
 
-Attendance can only be marked for a student who is actively enrolled in that batch.
+---
 
-Attendance should not be marked more than once for the same student, batch, and date.
+## Clone Repository
 
-Teacher email and phone numbers should not be duplicated.
+```bash
+git clone https://github.com/Nikithayyadav/Tuition-management-system.git
+```
 
-Listing APIs support pagination where required.
+```bash
+cd Tuition-management-system
+```
 
-API responses follow a common response structure.
+---
 
-The modules work together using shared database records.
+# 🗄️ Database Configuration
 
-Project Objectives
+Create the MySQL database used by the project.
 
-Digitize tuition institute management
+Example:
 
-Reduce manual record keeping
+```sql
+CREATE DATABASE tuition_db;
+```
 
-Centralize student information
+Configure the datasource in the Spring Boot configuration.
 
-Manage teachers and batches
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/tuition_db
+spring.datasource.username=root
+spring.datasource.password=YOUR_PASSWORD
+```
 
-Manage student enrollment
+Replace `YOUR_PASSWORD` with your MySQL password.
 
-Manage teacher-batch assignments
+> Use the actual database name and configuration defined in the current project configuration if they differ from the example.
 
-Manage subjects
+---
 
-Track student attendance
+# ▶️ Run the Application
 
-Manage fees and payments
+Make sure MySQL is running.
 
-Track academic performance
+Open the project in IntelliJ IDEA and run the Spring Boot application.
 
-Calculate student grades
+### Windows
 
-Provide structured REST APIs
+```bash
+mvnw.cmd spring-boot:run
+```
 
-Maintain consistency between modules
+### Linux / macOS
 
-Future Enhancements
+```bash
+./mvnw spring-boot:run
+```
 
-Authentication and authorization
+---
 
-Role-based access control
+# 📖 Swagger UI
 
-Admin dashboard
+After starting the application, Swagger UI can be used to test the REST APIs.
 
-Teacher dashboard
+```text
+http://localhost:8080/swagger-ui/index.html
+```
 
-Student dashboard
+Swagger allows you to:
 
-Online fee payment
+- View available APIs
+- Enter request data
+- Execute APIs
+- View responses
+- Test successful scenarios
+- Test error scenarios
 
-Email and SMS notifications
+---
 
-Attendance reports
+# 🧪 Complete Testing Flow
 
-Performance analytics
+The following sequence can be used to demonstrate the integrated system.
 
-PDF fee receipts
+## 1. Create Teacher
 
-Automated student reports
+```text
+POST /api/teachers
+```
 
-Docker deployment
+Example request:
 
-Cloud deployment
+```json
+{
+  "name": "Ravi Kumar",
+  "phone": "9876543210",
+  "email": "ravi@example.com",
+  "specialization": "Java"
+}
+```
 
-Team Responsibilities
+---
 
-Student Management — Abhilash
+## 2. Create Batch
 
-Student management
+```text
+POST /api/batches
+```
 
-Student enrollment
+Example request:
 
-Student batch assignment
+```json
+{
+  "name": "MRG_BATCH",
+  "startTime": "09:00",
+  "endTime": "11:00"
+}
+```
 
-Teacher & Class Management — Nikitha
+---
 
-Teacher management
+## 3. Create Subject
 
-Batch management
+```text
+POST /api/subjects
+```
 
-Teacher-batch assignment
+Example request:
 
-Subject management
+```json
+{
+  "name": "Java",
+  "description": "Core Java programming"
+}
+```
 
-Attendance management
+---
 
-Fees & Performance — Sadhvika
+## 4. Create Student
 
-Fee structure
+Use the Student Management APIs to create a student.
 
-Fee payments
+---
 
-Pending fees
+## 5. Enroll Student
 
-Fee receipts
+```text
+POST /students/{studentId}/enrollment
+```
 
-Examination marks
+Example request:
 
-Percentage calculation
+```json
+{
+  "batchId": 1
+}
+```
 
-Grade calculation
+---
 
-Performance reports
+## 6. Assign Teacher to Batch
 
-Project Status
+```text
+POST /api/teacher-batches?teacherId=1&batchId=1
+```
 
-Student Management          ✓
-Student Enrollment          ✓
+---
 
-Teacher Management          ✓
-Batch Management            ✓
-Teacher-Batch Assignment    ✓
-Subject Management          ✓
-Attendance Management       ✓
+## 7. Mark Attendance
 
-Fee Structure               ✓
-Fee Payment                 ✓
-Performance Management      ✓
+```text
+POST /api/attendance
+```
 
-The Tuition Management System is a collaborative Spring Boot project containing three integrated modules that work together through shared entities and database records.
+Example request:
 
-Repository
+```json
+{
+  "teacherId": 1,
+  "batchId": 1,
+  "studentId": 1,
+  "date": "2026-09-16",
+  "present": true
+}
+```
 
-GitHub Repository: https://github.com/Nikithayyadav/Tuition-management-system
+---
 
-License
+## 8. Manage Fees
 
-This project was developed as an academic project for learning and demonstrating Java, Spring Boot, REST APIs, database management, JPA, Hibernate, and software development concepts.
+```text
+Create Fee Structure
+        ↓
+Record Fee Payment
+        ↓
+Check Pending Fees
+        ↓
+Generate Fee Receipt
+```
+
+---
+
+## 9. Manage Performance
+
+```text
+Enter Examination Marks
+        ↓
+Calculate Percentage
+        ↓
+Calculate Grade
+        ↓
+Generate Performance Report
+```
+
+---
+
+# 🧪 Test Scenarios
+
+## Teacher
+
+- [x] Add teacher
+- [x] Get teachers
+- [x] Update teacher
+- [x] Duplicate email validation
+- [x] Duplicate phone validation
+- [x] Non-existing teacher validation
+- [x] Pagination
+
+## Batch
+
+- [x] Create batch
+- [x] Get batches
+- [x] Pagination
+
+## Subject
+
+- [x] Create subject
+- [x] Get subjects
+- [x] Pagination
+
+## Teacher-Batch
+
+- [x] Assign teacher to batch
+- [x] View assignments
+- [x] Prevent duplicate assignment
+
+## Student Enrollment
+
+- [x] Enroll student into batch
+- [x] Prevent duplicate enrollment
+- [x] Maintain enrollment status
+
+## Attendance
+
+- [x] Mark student present
+- [x] Mark student absent
+- [x] Verify active enrollment
+- [x] Prevent duplicate attendance
+
+## Fees
+
+- [x] Create fee structure
+- [x] Record payment
+- [x] Check pending fees
+- [x] Generate fee receipt
+
+## Performance
+
+- [x] Enter examination marks
+- [x] Calculate percentage
+- [x] Calculate grade
+- [x] Generate performance report
+
+---
+
+# ☕ Core Java Concepts
+
+The project demonstrates the following Java concepts.
+
+## Phase 1 — Object-Oriented Programming
+
+- Classes and Objects
+- Constructors
+- Encapsulation
+- Inheritance
+- Polymorphism
+- Interfaces
+
+## Phase 2 — Collections and Exception Handling
+
+- ArrayList
+- HashMap
+- HashSet
+- Exception Handling
+- Custom Exceptions
+
+## Phase 3 — Java Functional Programming
+
+- Lambda Expressions
+- Stream API
+- `filter()`
+- `map()`
+- `sorted()`
+- `collect()`
+- `groupingBy()`
+
+## Phase 4 — Database and Persistence
+
+- JDBC
+- MySQL
+- CRUD Operations
+- JPA
+- Hibernate
+- Transactions
+
+---
+
+# 🔗 Entity Relationships
+
+```text
+Student
+   │
+   ├──────────────► Enrollment ──────────────► Batch
+   │                                             │
+   │                                             │
+   │                                      TeacherBatch
+   │                                             │
+   │                                             ▼
+   │                                          Teacher
+   │
+   ├──────────────► Attendance
+   │
+   ├──────────────► Fee Structure
+   │
+   ├──────────────► Fee Payment
+   │
+   └──────────────► Performance
+                         │
+                         ▼
+                    Exam Marks
+```
+
+---
+
+# 🎯 Project Objectives
+
+- Digitize tuition institute management
+- Reduce manual record keeping
+- Centralize student information
+- Manage teachers and batches
+- Manage student enrollment
+- Manage teacher-batch assignments
+- Manage subjects
+- Track student attendance
+- Manage fees and payments
+- Track academic performance
+- Calculate student grades
+- Provide structured REST APIs
+- Maintain consistency between modules
+
+---
+
+# 🔮 Future Enhancements
+
+- Authentication and Authorization
+- Role-Based Access Control
+- Admin Dashboard
+- Teacher Dashboard
+- Student Dashboard
+- Online Fee Payment
+- Email and SMS Notifications
+- Attendance Reports
+- Advanced Performance Analytics
+- PDF Fee Receipts
+- Automated Student Reports
+- Docker Deployment
+- Cloud Deployment
+
+---
+
+# 👥 Team Responsibilities
+
+| Member | Module | Responsibilities |
+|---|---|---|
+| Abhilash | Student Management | Student management, enrollment, batch assignment |
+| Nikitha | Teacher & Class Management | Teacher, batch, teacher-batch, subject, attendance |
+| Sadhvika | Fees & Performance | Fees, payments, receipts, marks, percentage, grades, reports |
+
+---
+
+# 📊 Project Status
+
+| Module | Status |
+|---|---|
+| Student Management | ✅ Implemented |
+| Student Enrollment | ✅ Implemented |
+| Teacher Management | ✅ Implemented |
+| Batch Management | ✅ Implemented |
+| Teacher-Batch Assignment | ✅ Implemented |
+| Subject Management | ✅ Implemented |
+| Attendance Management | ✅ Implemented |
+| Fee Structure | ✅ Implemented |
+| Fee Payment | ✅ Implemented |
+| Performance Management | ✅ Implemented |
+
+---
+
+# 👩‍💻 Developer
+
+### Nikitha Yadav
+
+**B.Tech — Computer Science & Engineering (AI)**
+
+Responsibilities in this project:
+
+- Teacher Management
+- Batch Management
+- Teacher-Batch Assignment
+- Subject Management
+- Attendance Management
+
+---
+
+# 📂 Repository
+
+[Tuition Management System — GitHub](https://github.com/Nikithayyadav/Tuition-management-system)
+
+---
+
+# 📜 License
+
+This project was developed as an academic project for learning and demonstrating Java, Spring Boot, REST APIs, MySQL, JPA, Hibernate, exception handling, pagination, and backend development concepts.
