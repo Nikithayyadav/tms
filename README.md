@@ -4,7 +4,7 @@ A backend-based **Tuition Management System** developed using **Java, Spring Boo
 
 The project is divided into three connected modules:
 
-- 👨‍🎓 **Student Management**
+- 👨‍🎓 **Student Management** 
 - 👨‍🏫 **Teacher & Class Management**
 - 💰 **Fees & Performance Management**
 
