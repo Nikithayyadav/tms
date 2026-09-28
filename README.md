@@ -9,7 +9,7 @@ The project is divided into three connected modules:
 - 💰 **Fees & Performance Management**
 
 ---
-
+ 
 ## 📌 Project Structure
 
 ```text
